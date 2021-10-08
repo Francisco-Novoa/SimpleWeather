@@ -6,7 +6,7 @@
 
 ### Instalation
 
-- The application uses gatsby as framework, so long as that program is installed the rest is as simple as
+- The application uses gatsby as framework, so long as that program is installed the rest is as simple as cloning the repository and
 - > npm install
 - > npm start
 
