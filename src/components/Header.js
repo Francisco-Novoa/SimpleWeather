@@ -12,7 +12,7 @@ const styles = {
     padding: "2vh 2vw ",
   },
   toolbar: {
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     height: "100%",
   },
   search: {

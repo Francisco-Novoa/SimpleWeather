@@ -15,7 +15,6 @@ const styles = {
     marginBotton: "0.5rem",
     textAlign: "center",
     padding: "0.25rem",
-    alignItems: "center",
     backgroundColor: "#120a19",
   },
   container: {
@@ -35,7 +34,7 @@ const HourForecast = ({ singleForecast }) => {
       </Grid>
       <Grid item> {singleForecast.main.humidity}%</Grid>
       <Grid>
-        <img src={getIconUrl(singleForecast.weather[0].icon)} />
+        <img alt="" src={getIconUrl(singleForecast.weather[0].icon)} />
       </Grid>
       <Grid>{to12HourClock(singleForecast.dt)}</Grid>
     </Grid>

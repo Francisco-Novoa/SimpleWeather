@@ -32,7 +32,7 @@ const DayForecast = ({ singleForecast }) => {
           justifyContent: "center",
         }}
       >
-        <img src={getIconUrl(singleForecast.weather[0].icon)} />
+        <img alt="" src={getIconUrl(singleForecast.weather[0].icon)} />
       </Grid>
       <Grid container xs={6} item flexDirection="column">
         <Grid item textAlign="center">

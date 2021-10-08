@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import FlatButton from "../components/animated/FlatButton";
 
 const styles = {

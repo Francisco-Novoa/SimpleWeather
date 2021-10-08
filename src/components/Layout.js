@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid } from "@mui/material";
 
 import Header from "./Header";
@@ -8,7 +8,7 @@ const styles = {
   mainStyle: {},
 };
 
-export default function ({
+export default function Layout({
   children,
   state,
   setState,
