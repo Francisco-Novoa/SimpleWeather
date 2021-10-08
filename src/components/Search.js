@@ -134,7 +134,7 @@ export default function Virtualize({ sx, cities, onNamedChange, onChange }) {
       options={cities}
       onChange={onNamedChange("city")}
       groupBy={option => option.countryName}
-      renderInput={params => <TextField {...params} label="Ciudades" />}
+      renderInput={params => <TextField {...params} label="Cities" />}
       renderOption={(props, option) => [props, option]}
       renderGroup={params => params}
     />
