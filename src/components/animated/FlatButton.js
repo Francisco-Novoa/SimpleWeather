@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 
 const StyledButton = styled(Button)(({ theme: { palette } }) => {
   return {
-    borderColor: "#05ffa1",
-    color: "#05ffa1",
+    minWidth: "100px",
+    height: "38px",
+    padding: "8",
     marginRight: "2px",
     marginLeft: "2px",
+    borderRadius: "15px",
   };
 });
 
@@ -20,11 +22,6 @@ export default function CustomizedButtons({ children, onClick, ...props }) {
       variant="outlined"
       component={motion.div}
       disableRipple
-      whileHover={{
-        scale: 1.1,
-        borderColor: "#05ffa1",
-        transition: { duration: 0.1 },
-      }}
       whileTap={{ scale: 0.9 }}
     >
       {children}

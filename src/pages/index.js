@@ -25,6 +25,7 @@ const defaultSelectedCity = 0;
 
 export default function Index() {
   const [state, setState] = useState({
+    loading: true,
     cities: cities,
     preselectedCities,
     selectedCity: preselectedCities[defaultSelectedCity],

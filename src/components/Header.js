@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
 import Search from "./Search";
 const styles = {
   mainStyle: {
@@ -17,8 +17,10 @@ const styles = {
   },
   search: {
     backgroundColor: "white",
+    borderRadius: "10px",
     border: "2px solid",
     minWidth: "200px",
+    marginBottom: "16px",
   },
 };
 
@@ -26,13 +28,29 @@ export default function Header({ onChange, state, onNamedChange }) {
   return (
     <AppBar position="static" sx={styles.mainStyle}>
       <Toolbar sx={styles.toolbar}>
-        <Typography variant="h5">Simple Weather</Typography>
-        <Search
-          sx={styles.search}
-          cities={state.cities}
-          onNamedChange={onNamedChange}
-          onChange={onChange}
-        />
+        <Grid container justifyContent="center">
+          <Grid
+            xs={11}
+            item
+            container
+            sx={{
+              justifyContent: "space-between",
+              padding: "0 34px 0 ",
+            }}
+          >
+            <Grid item>
+              <Typography variant="h4">Simple Weather</Typography>
+            </Grid>
+            <Grid item>
+              <Search
+                sx={styles.search}
+                cities={state.cities}
+                onNamedChange={onNamedChange}
+                onChange={onChange}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   );

@@ -14,8 +14,4 @@
 
 ### Video of the App working locally [Here](https://drive.google.com/file/d/1HLD85yBBRjfCYGJadEl4aaGClVkW8bqD/view?usp=sharing)
 
-### Other considerations
-
-- The styles were designed with a mobile app in mind and look best in that configuration
-
 #### Made using an [oficial example made by Material UI](https://github.com/mui-org/material-ui/tree/master/examples/gatsby) as a boiler plate

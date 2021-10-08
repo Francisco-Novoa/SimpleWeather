@@ -1,12 +1,12 @@
-import React from "react";
-import { Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Grid, Typography, CircularProgress } from "@mui/material";
 
 import { weekdayMonthDay, kelvin2Celcius, to2Digits } from "../utils";
 import { getIconUrl } from "../services/getIcon";
 
 const styles = {
   cardStyle: {
-    margin: "0.35rem",
+    marginBottom: "8px",
     height: "4.8rem",
     border: "1px solid #FF71CE",
     padding: "0.25rem",
@@ -14,39 +14,75 @@ const styles = {
     backgroundColor: "#120a19",
   },
   container: {
-    marginTop: "0.45rem",
+    height: "54vh",
+    marginTop: "8px",
     border: "1px solid #01cdfe",
-    padding: "0.5rem",
+    padding: "20px",
+    paddingTop: "15px",
   },
 };
 
 const DayForecast = ({ singleForecast }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, [singleForecast]);
+
   return (
     <Grid sx={styles.cardStyle} container item>
-      <Grid
-        item
-        container
-        xs={3}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <img alt="" src={getIconUrl(singleForecast.weather[0].icon)} />
-      </Grid>
-      <Grid container xs={6} item flexDirection="column">
-        <Grid item textAlign="center">
-          <Typography variant="h6">
-            {weekdayMonthDay(singleForecast.dt)}
-          </Typography>
+      {!loading ? (
+        <>
+          <Grid
+            item
+            container
+            xs={3}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <img alt="" src={getIconUrl(singleForecast.weather[0].icon)} />
+          </Grid>
+          <Grid
+            container
+            xs={6}
+            item
+            sx={{ flexDirection: "column", justifyContent: "space-evenly" }}
+          >
+            <Grid item textAlign="center">
+              <Typography variant="h6">
+                {weekdayMonthDay(singleForecast.dt)}
+              </Typography>
+            </Grid>
+            <Grid item textAlign="center" color="#FF71CE">
+              {singleForecast.weather[0].description}
+            </Grid>
+          </Grid>
+          <Grid xs={3} item textAlign="center">
+            {to2Digits(kelvin2Celcius(singleForecast.main.temp))}°
+          </Grid>
+        </>
+      ) : (
+        <Grid
+          container
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress color="secondary" />
         </Grid>
-        <Grid item textAlign="center" color="#FF71CE">
-          {singleForecast.weather[0].description}
-        </Grid>
-      </Grid>
-      <Grid xs={3} item textAlign="center">
-        {to2Digits(kelvin2Celcius(singleForecast.main.temp))}°
-      </Grid>
+      )}
     </Grid>
   );
 };
@@ -62,7 +98,9 @@ const ForecastContainer = ({ selectedCity }) => {
   return (
     <Grid sx={styles.container} container item justifyContent="center">
       <Grid item xs={12}>
-        <Typography variant="h5">Next Five Days</Typography>
+        <Typography variant="h5" sx={{ paddingBottom: "5px" }}>
+          Next Five Days
+        </Typography>
       </Grid>
       <Grid
         item
@@ -82,7 +120,10 @@ const ForecastContainer = ({ selectedCity }) => {
 export default function DaysForecast({ state }) {
   return (
     <Grid container>
-      <ForecastContainer selectedCity={state?.selectedCity} />
+      <ForecastContainer
+        selectedCity={state?.selectedCity}
+        loading={state.loading}
+      />
     </Grid>
   );
 }

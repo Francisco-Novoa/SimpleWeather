@@ -8,23 +8,26 @@ const styles = {
     borderColor: "#FF71CE",
     fontSize: "13px",
     padding: "0.3rem",
+    marginRight: "8px",
   },
   Inactive: {
     color: "#4a2966",
     borderColor: "#4a2966",
     fontSize: "13px",
     padding: "0.3rem",
+    marginRight: "8px",
   },
   container: {
     justifyContent: "flex-start",
     flexDirection: "row",
-    marginBottom: "0.45rem",
+    marginBottom: "8px",
   },
 };
 
 const City = ({ singularCity, city, onChange }) => {
   const isActive = singularCity.name === city;
   const onClick = () =>
+    !isActive &&
     onChange({
       selectedCity: singularCity,
       city: singularCity.name,
