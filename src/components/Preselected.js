@@ -33,6 +33,11 @@ const City = ({ singularCity, city, onChange }) => {
     <Grid item>
       <FlatButton
         sx={isActive ? styles.Active : styles.Inactive}
+        whileHover={{
+          scale: 1.1,
+          borderColor: isActive ? "#FF71CE" : "#4a2966",
+          transition: { duration: 0.1 },
+        }}
         onClick={onClick}
       >
         {singularCity.name}

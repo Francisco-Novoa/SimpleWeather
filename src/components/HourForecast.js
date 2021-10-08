@@ -83,7 +83,7 @@ const ForecastContainer = ({ selectedCity }) => {
       <Grid item xs={12}>
         <Typography variant="h5">Next Hours</Typography>
       </Grid>
-      <Grid item container>
+      <Grid item container justifyContent="center">
         {localState.list?.map(elem => {
           return <HourForecast singleForecast={elem} key={elem.dt} />;
         })}
