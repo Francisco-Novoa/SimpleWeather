@@ -1,4 +1,13 @@
-const storage = window.localStorage;
+const isBrowser = typeof window !== "undefined";
+//making the caching work w/ server side rendering
+const storage = isBrowser
+  ? window.localStorage
+  : {
+      getItem: () => null,
+      setItem: () => null,
+      remove: () => null,
+      datedSave: () => null,
+    };
 
 export const localStorage = {
   retrieve: name => JSON.parse(storage.getItem(name)),
