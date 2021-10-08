@@ -1,38 +1,13 @@
-# Gatsby example
+### Technical Test for Ria
 
-## How to use
+## Description
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+- simple weather app using openweathermap.org as an api
 
-<!-- #default-branch-switch -->
+## Instalation
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/gatsby
-cd gatsby
-```
+- the application uses gatsby as framework, so long as that program is installed the rest is as simple as
+- > npm install
+- > npm start
 
-Install it and run:
-
-```sh
-npm install
-npm run develop
-```
-
-or:
-
-<!-- #default-branch-switch -->
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/gatsby)
-
-## The idea behind the example
-
-The project uses [Gatsby](https://github.com/gatsbyjs/gatsby), which is a static site generator for React.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
+## Made using an [oficial example made by Material UI](https://github.com/mui-org/material-ui/tree/master/examples/gatsby)
