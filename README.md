@@ -12,6 +12,6 @@
 
 ### Working deployment in Netlify [Here](https://jovial-babbage-2be2cf.netlify.app)
 
-### Video of the App working locally [Here](https://drive.google.com/file/d/1HLD85yBBRjfCYGJadEl4aaGClVkW8bqD/view?usp=sharing)
+### Video of the App working locally [Here](https://drive.google.com/file/d/10mbbexPINbgr91QHJfZi98VFggir1x5E/view?usp=sharing)
 
 #### Made using an [oficial example made by Material UI](https://github.com/mui-org/material-ui/tree/master/examples/gatsby) as a boiler plate
