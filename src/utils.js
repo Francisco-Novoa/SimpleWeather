@@ -4,7 +4,7 @@ export const to2Digits = floatingPointNumber =>
   Math.trunc(floatingPointNumber * 100) / 100;
 
 export const to12HourClock = time =>
-  new Date(time * 1000).toLocaleDateString("es-CL", {
+  new Date(time * 1000).toLocaleDateString("en-US", {
     weekday: "short",
     month: "short",
     day: "2-digit",
