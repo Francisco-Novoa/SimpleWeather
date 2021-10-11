@@ -231,7 +231,7 @@ const ForecastContainer = ({ selectedCity }) => {
       <Grid
         sx={{
           gridColumn: "1/24",
-          gridRow: "3/12",
+          gridRow: "2/12",
           width: "100%",
         }}
       >
