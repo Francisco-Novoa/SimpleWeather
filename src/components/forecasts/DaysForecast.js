@@ -101,7 +101,7 @@ const DayForecast = ({ singleForecast, index }) => {
                 }}
                 variant="subtitle1"
               >
-                Max:&nbsp;
+                Max:&nbsp;&nbsp;
               </Typography>
               <Typography variant="subtitle1">
                 {to2Digits(kelvin2Celcius(singleForecast.main.temp_max))}°C
@@ -122,7 +122,7 @@ const DayForecast = ({ singleForecast, index }) => {
                 }}
                 variant="subtitle1"
               >
-                Min:&nbsp;
+                Min:&nbsp;&nbsp;
               </Typography>
               <Typography variant="subtitle1">
                 {to2Digits(kelvin2Celcius(singleForecast.main.temp_min))}°C
@@ -157,7 +157,7 @@ const DayForecast = ({ singleForecast, index }) => {
             >
               <Typography sx={{ color: "#5fb2ce" }} variant="subtitle1">
                 {to2Digits(meterPerS2KmPerHour(singleForecast.wind.speed))}
-                &nbsp;
+                &nbsp;&nbsp;
               </Typography>
               <Typography
                 variant="subtitle1"

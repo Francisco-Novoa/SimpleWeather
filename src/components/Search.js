@@ -16,13 +16,17 @@ function renderRow(props) {
   const dataSet = data[index];
   const inlineStyle = {
     ...style,
-    color: "#FF71CE",
+    color: "#fe5800",
     top: style.top + LISTBOX_PADDING,
   };
 
   if (dataSet.hasOwnProperty("group")) {
     return (
-      <ListSubheader key={dataSet.key} component="div" style={inlineStyle}>
+      <ListSubheader
+        key={dataSet.key}
+        component="div"
+        style={{ ...inlineStyle, textDecoration: "underline" }}
+      >
         {dataSet.group}
       </ListSubheader>
     );
@@ -123,7 +127,7 @@ const StyledPopper = styled(Popper)({
   },
 });
 
-export default function Virtualize({ sx, cities, onNamedChange, onChange }) {
+export default function Virtualize({ sx, cities, onSearch }) {
   return (
     <Autocomplete
       id="virtualize-demo"
@@ -132,9 +136,15 @@ export default function Virtualize({ sx, cities, onNamedChange, onChange }) {
       PopperComponent={StyledPopper}
       ListboxComponent={ListboxComponent}
       options={cities}
-      onChange={onNamedChange("city")}
+      onChange={onSearch}
       groupBy={option => option.countryName}
-      renderInput={params => <TextField {...params} label="Cities" />}
+      renderInput={params => (
+        <TextField
+          {...params}
+          label="Seach a different location"
+          color="grey"
+        />
+      )}
       renderOption={(props, option) => [props, option]}
       renderGroup={params => params}
     />
