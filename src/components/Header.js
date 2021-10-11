@@ -40,7 +40,7 @@ export default function Header({ onChange, state, onSearch, sx }) {
           </Grid>
           <Grid
             sx={{
-              marginRight: "-50px",
+              marginRight: "-65px",
               display: "flex",
               alignItems: "center",
             }}
