@@ -19,7 +19,8 @@ export default function CustomizedButtons({ children, onClick, ...props }) {
     <StyledButton
       {...props}
       onClick={onClick}
-      variant="outlined"
+      variant="contained"
+      disableElevation
       component={motion.div}
       disableRipple
       whileTap={{ scale: 0.9 }}

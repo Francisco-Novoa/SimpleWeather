@@ -10,10 +10,11 @@
     "axios": "^0.22.0",
     "framer-motion": "^4.1.17",
     "gatsby": "latest",
-    "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-react-helmet": "^4.14.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
     "react-window": "^1.8.6"
   },
   "scripts": {

@@ -2,7 +2,7 @@
 
 ### Description
 
-- Simple weather app made in Reactjs and Gatsby using openweathermap.org as an api
+- Simple weather app made in Reactjs and Gatsby using [openweathermap](https://openweathermap.org/) as an api
 
 ### Instalation
 
