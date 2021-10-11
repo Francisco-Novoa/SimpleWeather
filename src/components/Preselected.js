@@ -1,26 +1,26 @@
-import React from "react";
-import { Grid } from "@mui/material";
-import FlatButton from "../components/animated/FlatButton";
+import React, { useEffect, useState } from "react";
+import { Grid, Typography, Button, Card } from "@mui/material";
+
+const baseButton = { fontWeight: "bold" };
 
 const styles = {
   Active: {
-    color: "#FF71CE",
-    borderColor: "#FF71CE",
-    fontSize: "13px",
-    padding: "0.3rem",
-    marginRight: "8px",
+    ...baseButton,
+    color: "#ff7300",
+    fontSize: "16px",
   },
   Inactive: {
-    color: "#4a2966",
-    borderColor: "#4a2966",
+    ...baseButton,
+    color: "#878787",
     fontSize: "13px",
-    padding: "0.3rem",
-    marginRight: "8px",
   },
   container: {
+    display: "grid",
+    padding: "16px",
+    gridTemplateColumns: "repeat(5, 1fr)",
+    gridTemplateRows: "repeat(10, 1fr)",
+    gap: 1,
     justifyContent: "flex-start",
-    flexDirection: "row",
-    marginBottom: "8px",
   },
 };
 
@@ -33,36 +33,46 @@ const City = ({ singularCity, city, onChange }) => {
       city: singularCity.name,
     });
   return (
-    <Grid item>
-      <FlatButton
-        sx={isActive ? styles.Active : styles.Inactive}
-        whileHover={{
-          scale: 1.1,
-          borderColor: isActive ? "#FF71CE" : "#4a2966",
-          transition: { duration: 0.1 },
-        }}
-        onClick={onClick}
-      >
-        {singularCity.name}
-      </FlatButton>
+    <Grid item sx={{ gridColumn: "span 3" }}>
+      <Button variant="text" onClick={onClick} sx={{ width: "100%" }}>
+        <Typography sx={isActive ? styles.Active : styles.Inactive}>
+          {singularCity.name?.toUpperCase()}
+        </Typography>
+      </Button>
     </Grid>
   );
 };
 
 export default function Preselected({
   onChange,
-  state: { preselectedCities, city },
+  state: { preselectedCities, city, lastCities },
+  sx,
 }) {
+  const [cities, setCities] = useState([...preselectedCities, ...lastCities]);
+  useEffect(() => {
+    setCities([...preselectedCities, ...lastCities]);
+  }, [lastCities]);
+
   return (
-    <Grid container item sx={styles.container}>
-      {preselectedCities.map(singularCity => (
-        <City
-          singularCity={singularCity}
-          onChange={onChange}
-          key={singularCity.name}
-          city={city}
-        />
-      ))}
-    </Grid>
+    <Card sx={sx}>
+      <Grid container item sx={styles.container}>
+        <Grid id="gut" sx={{ gridColumn: "1", gridRow: "1 / -1" }}></Grid>
+        <Grid
+          container
+          id="gut"
+          sx={{ gridColumn: "2/5", gridRow: "1", justifyContent: "center" }}
+        >
+          <Typography variant="subtitle2">Recently viewed cities</Typography>
+        </Grid>
+        {cities.map(singularCity => (
+          <City
+            singularCity={singularCity}
+            onChange={onChange}
+            key={singularCity.name}
+            city={city}
+          />
+        ))}
+      </Grid>
+    </Card>
   );
 }
