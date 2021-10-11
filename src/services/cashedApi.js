@@ -1,5 +1,5 @@
 import { localStorage } from "./storage";
-import { forecast } from "./weatherApi";
+import { forecast, currentWeather } from "./weatherApi";
 
 //after how many minutes it will try to call the api
 //default is 3 hours
@@ -23,4 +23,10 @@ export const cashedSimpleForecast = cashedForecast(
   forecastDuration,
   "simple",
   forecast
+);
+
+export const cashedCurrentWeather = cashedForecast(
+  forecastDuration,
+  "current",
+  currentWeather
 );
