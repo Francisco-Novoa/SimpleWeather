@@ -4,23 +4,15 @@ import { Grid } from "@mui/material";
 
 const styles = {
   mainStyle: {
-    backgroundColor: "background.black",
-    border: 0,
-    height: "90vh",
-    width: "100%",
+    backgroundColor: "background.light",
     color: "primary.light",
-    padding: "0.3vh 0 0.5vh",
   },
 };
 
-export default function Body({ children }) {
+export default function Body({ children, sx }) {
   return (
-    <Grid container sx={styles.mainStyle}>
-      <Grid item xs={1}></Grid>
-      <Grid item xs={10}>
-        {children}
-      </Grid>
-      <Grid item xs={1}></Grid>{" "}
+    <Grid container component="main" sx={{ ...sx, ...styles.mainStyle }}>
+      {children}
     </Grid>
   );
 }
