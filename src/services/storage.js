@@ -9,6 +9,8 @@ const storage = isBrowser
       datedSave: () => null,
     };
 
+const msInOneMinute = 60000;
+
 export const localStorage = {
   retrieve: name => JSON.parse(storage.getItem(name)),
   save: (name, data) => storage.setItem(name, JSON.stringify(data)),
@@ -18,7 +20,7 @@ export const localStorage = {
     localStorage.save(name, {
       ...data,
       createdAt: now.toISOString(),
-      expiresIn: new Date(now.getTime() + durationInMinutes * 60000),
+      expiresIn: new Date(now.getTime() + durationInMinutes * msInOneMinute),
     });
   },
 };
