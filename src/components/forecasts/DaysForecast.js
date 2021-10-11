@@ -42,6 +42,8 @@ const DayForecast = ({ singleForecast, index }) => {
 
   return (
     <Card
+      elevation={0}
+      variant="outlined"
       sx={{
         gridColumn: index <= 2 ? "span 4" : "span 6",
         gridRow: "span 2",
@@ -87,9 +89,7 @@ const DayForecast = ({ singleForecast, index }) => {
           <Grid sx={{ gridColumn: "1/2", gridRow: "4/-1" }}>
             <Grid sx={{ ...styles.align, justifyContent: "center" }}>
               <Typography sx={{ color: "#878787", textAlign: "center" }}>
-                {singleForecast.weather[0].description
-                  .split(" ")
-                  .join("\u00A0")}
+                {singleForecast.weather[0].description}
               </Typography>
             </Grid>
           </Grid>

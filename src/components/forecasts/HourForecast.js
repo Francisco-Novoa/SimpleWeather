@@ -100,6 +100,8 @@ const ForecastContainer = ({ selectedCity, loading }) => {
     setBounds(prevState => ({
       ...prevState,
       list: selectedCity?.forecast?.list?.slice(initialForecast, lastForecast),
+      left: initialForecast,
+      right: lastForecast,
     }));
   }, [selectedCity]);
 
@@ -152,7 +154,7 @@ const ForecastContainer = ({ selectedCity, loading }) => {
             minHeight: "100%",
             color: "#878787",
             borderColor: "#878787",
-            "&:hover": { borderColor: "#878787", bgcolor: "#fe5800" },
+            "&:hover": { borderColor: "#878787" },
           }}
         >
           <BiLeftArrow />
