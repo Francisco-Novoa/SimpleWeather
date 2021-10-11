@@ -19,7 +19,7 @@ import cities from "../data/cities.json";
 import preselectedCities from "../data/preselected-cities.json";
 
 const defaultSelectedCity = 0;
-const howManyCitiesSave = 4;
+const howManyCitiesSave = 2;
 export default function Index() {
   const [state, setState] = useState({
     loading: true,

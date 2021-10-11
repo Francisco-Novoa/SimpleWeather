@@ -15,8 +15,9 @@ const styles = {
     fontSize: "13px",
   },
   container: {
+    height: "100%",
     display: "grid",
-    padding: "16px",
+    padding: "24px",
     gridTemplateColumns: "repeat(5, 1fr)",
     gridTemplateRows: "repeat(10, 1fr)",
     gap: 1,
