@@ -28,6 +28,7 @@ const HourForecast = ({ singleForecast }) => {
     <Card
       variant="outlined"
       sx={{
+        padding: "8px",
         height: "100%",
       }}
     >

@@ -22,12 +22,33 @@ const styles = {
     alignItems: "center",
     height: "100%",
   },
+  normal: {
+    gridColumn: "span 6",
+    gridRow: "span 2",
+  },
+  last: {
+    gridColumn: "span 6",
+    gridRow: "span 2",
+  },
 };
 
 const DayForecast = ({ singleForecast, index }) => {
   const [loading, setLoading] = useState(true);
+  const [style, setStyle] = useState(styles.last);
 
   useEffect(() => {
+    if (index !== 4) {
+      setStyle({
+        gridColumn: "span 6",
+        gridRow: "span 2",
+      });
+    } else {
+      setStyle({
+        gridColumn: "4/10",
+        gridRow: "span 2",
+      });
+    }
+
     setTimeout(() => {
       setLoading(false);
     }, 500);
@@ -41,30 +62,20 @@ const DayForecast = ({ singleForecast, index }) => {
   }, [singleForecast]);
 
   return (
-    <Card
-      elevation={0}
-      variant="outlined"
-      sx={{
-        gridColumn: index <= 2 ? "span 4" : "span 6",
-        gridRow: "span 2",
-        height: "100%",
-        width: "100%",
-        padding: "20px",
-      }}
-    >
+    <Card elevation={0} variant="outlined" sx={style}>
       {!loading ? (
         <Grid
           sx={{
             display: "grid",
             gridTemplateColumns: "repeat(6,1fr)",
             gridTemplateRows: "repeat(5, 20%)",
-
+            paddingBottom: "16px",
             boxSizing: "border-box",
             height: "100%",
             width: "100%",
           }}
         >
-          <Grid sx={{ gridColumn: "1/2", gridRow: "1/4" }}>
+          <Grid sx={{ gridColumn: "1/3", gridRow: "1/4" }}>
             <Grid
               sx={{
                 display: "flex",
@@ -79,21 +90,23 @@ const DayForecast = ({ singleForecast, index }) => {
               />
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "2/5", gridRow: "1/4" }}>
+          <Grid sx={{ gridColumn: "3/7", gridRow: "1/4" }}>
             <Grid sx={{ ...styles.align, justifyContent: "center" }}>
-              <Typography variant="h6">
+              <Typography variant="h4">
                 {weekdayMonthDay(singleForecast.dt)}
               </Typography>
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "1/2", gridRow: "4/-1" }}>
+          <Grid sx={{ gridColumn: "1/3", gridRow: "4" }}>
             <Grid sx={{ ...styles.align, justifyContent: "center" }}>
-              <Typography sx={{ color: "#878787", textAlign: "center" }}>
+              <Typography
+                sx={{ color: "#878787", textAlign: "center", fontSize: "14px" }}
+              >
                 {singleForecast.weather[0].description}
               </Typography>
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "2/5", gridRow: "4/6" }}>
+          <Grid sx={{ gridColumn: "1/3", gridRow: "5/6" }}>
             <Grid sx={{ ...styles.align, justifyContent: "center" }}>
               <Typography
                 sx={{
@@ -108,7 +121,7 @@ const DayForecast = ({ singleForecast, index }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "5/-1", gridRow: "4/6" }}>
+          <Grid sx={{ gridColumn: "3/7", gridRow: "5/6" }}>
             <Grid
               sx={{
                 ...styles.align,
@@ -129,13 +142,13 @@ const DayForecast = ({ singleForecast, index }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "5/-1", gridRow: "1" }}>
+          <Grid sx={{ gridColumn: "4", gridRow: "4" }}>
             <Grid
               sx={{
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "flex-end",
+                paddingRight: "32px",
               }}
             >
               <Typography
@@ -147,12 +160,12 @@ const DayForecast = ({ singleForecast, index }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid sx={{ gridColumn: "5/-1", gridRow: "2/4" }}>
+          <Grid sx={{ gridColumn: "5/-1", gridRow: "4" }}>
             <Grid
               sx={{
                 display: "flex",
                 alignItems: "start",
-                justifyContent: "center",
+                justifyContent: "flex-start",
               }}
             >
               <Typography sx={{ color: "#5fb2ce" }} variant="subtitle1">
@@ -227,7 +240,7 @@ const ForecastContainer = ({ selectedCity }) => {
             height: "100%",
             display: "grid",
             gridTemplateColumns: "repeat(12,1fr)",
-            gridTemplateRows: "repeat(4,1fr)",
+            gridTemplateRows: "repeat(6,1fr)",
             gap: 1,
             justifyContent: "center",
           }}

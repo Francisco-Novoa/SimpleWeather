@@ -18,8 +18,6 @@ import Preselected from "../components/Preselected";
 import cities from "../data/cities.json";
 import preselectedCities from "../data/preselected-cities.json";
 
-const styles = {};
-
 const defaultSelectedCity = 0;
 const howManyCitiesSave = 4;
 export default function Index() {
@@ -96,7 +94,7 @@ export default function Index() {
           display: "grid",
           gap: 2,
           gridTemplateColumns: "repeat(12, 1fr)",
-          gridTemplateRows: "repeat(11, 100px)",
+          gridTemplateRows: "repeat(13, 100px)",
         }}
       >
         <CurrentWeather
@@ -117,7 +115,7 @@ export default function Index() {
 
         <DaysForecast
           state={state}
-          sx={{ gridColumn: "1/12", gridRow: "7/11" }}
+          sx={{ gridColumn: "1/12", gridRow: "7/14" }}
         />
       </Grid>
     </Layout>

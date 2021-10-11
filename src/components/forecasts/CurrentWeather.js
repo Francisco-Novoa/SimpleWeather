@@ -5,7 +5,7 @@ import { kelvin2Celcius, toNoDigits, to12HourClock } from "../../utils";
 import { getIconUrl } from "../../services/getIcon";
 
 const styles = {
-  container: { justifyContent: "center", height: "100%", padding: "16px" },
+  container: { justifyContent: "center", height: "100%", padding: "24px" },
   toTheRight: {
     justifyContent: "flex-end",
     alignItems: "center",
